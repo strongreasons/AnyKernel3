@@ -4,18 +4,18 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=STRIX Kernel by fiqri19102002 @ github
+kernel.string=STRIX tulip Kernel by fiqri19102002 @ github
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=whyred
-device.name2=
+device.name1=tulip
+device.name2=twolip
 device.name3=
 device.name4=
 device.name5=
-supported.versions=
+supported.versions=10
 supported.patchlevels=
 '; } # end properties
 
