@@ -253,9 +253,7 @@ do_versioncheck() {
       fi;
     done;
   fi;
-  if [ "$supported" ]; then
-    ui_print "$android_ver" " ";
-  else
+  if [ ! "$supported" ]; then
     abort " " "Unsupported Android version. Aborting...";
   fi;
 }
@@ -277,7 +275,7 @@ do_levelcheck() {
     hi_lvl=9999-99;
   fi;
   if echo -e "$hi_lvl\n$lo_lvl\n$parsed_lvl" | $BB sort -g | $BB grep -n "$parsed_lvl" | $BB grep -q '^2:'; then
-    ui_print "$android_lvl" " ";
+    ui_print " ";
   else
     abort " " "Unsupported Android security patch level. Aborting...";
   fi;
@@ -399,7 +397,6 @@ if [ -f version ]; then
   ui_printfile version;
   ui_print " ";
 fi;
-ui_print " " "AnyKernel3 by osm0sis @ xda-developers" " " " ";
 
 setup_env;
 
@@ -425,3 +422,4 @@ if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
 fi;
 
 ui_print " " " " "Done!";
+
