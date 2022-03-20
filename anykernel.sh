@@ -14,7 +14,7 @@ device.name2=X00TD
 device.name3=ASUS_X00T
 device.name4=ASUS_X00TD
 device.name5=ASUS_X00TDA
-supported.versions=9.0 - 11.0
+supported.versions=9.0 - 13.0
 supported.patchlevels=2018-04 -
 '; } # end properties
 
@@ -22,6 +22,7 @@ supported.patchlevels=2018-04 -
 block=/dev/block/platform/soc/c0c4000.sdhci/by-name/boot;
 is_slot_device=0;
 ramdisk_compression=auto;
+patch_vbmeta_flag=auto;
 
 ## AnyKernel methods (DO NOT CHANGE)
 # import patching functions/variables - see for reference
@@ -39,7 +40,7 @@ chmod -R 750 $ramdisk/*;
 chmod -R 755 $ramdisk/sbin;
 chown -R root:root $ramdisk/*;
 
-## AnyKernel install
+## AnyKernel boot install
 dump_boot;
 
 # begin ramdisk changes
@@ -101,5 +102,23 @@ fi
 # end ramdisk changes
 
 write_boot;
+## end boot install
+
+
+# shell variables
+#block=vendor_boot;
+#is_slot_device=1;
+#ramdisk_compression=auto;
+#patch_vbmeta_flag=auto;
+
+# reset for vendor_boot patching
+#reset_ak;
+
+
+## AnyKernel vendor_boot install
+#split_boot; # skip unpack/repack ramdisk since we don't need vendor_ramdisk access
+
+#flash_boot;
+## end vendor_boot install
 
 ## end install
