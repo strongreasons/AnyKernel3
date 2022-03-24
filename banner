@@ -10,7 +10,7 @@ _________________________________________________
   \ V  V /| |/ / (_| | | | (_| \__ \
    \_/\_/ |_/___\__,_|_|  \__,_|___/
 _________________________________________________
-- Kernel Version : 4.4.280
+- Kernel Version : 4.4.302
 - Variant        : Energy Aware Scheduling
 - Compiler       : AOSP clang 14.0.2
 - Device         : Asus Zenfone Max Pro M1
