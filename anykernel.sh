@@ -80,39 +80,6 @@ remove_line init.rc "import /init.Pbh.rc"
 remove_line init.rc "import /init.overdose.rc"
 replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
 
-ui_print " ";
-# rearm perfboostsconfig.xml
-if [ ! -f /vendor/etc/perf/perfboostsconfig.xml ]; then
-	mv /vendor/etc/perf/perfboostsconfig.xml.bak /vendor/etc/perf/perfboostsconfig.xml;
-	mv /vendor/etc/perf/perfboostsconfig.xml.bkp /vendor/etc/perf/perfboostsconfig.xml;
-fi
-
-# rearm commonresourceconfigs.xml
-if [ ! -f /vendor/etc/perf/commonresourceconfigs.xml ]; then
-	mv /vendor/etc/perf/commonresourceconfigs.xml.bak /vendor/etc/perf/commonresourceconfigs.xml;
-	mv /vendor/etc/perf/commonresourceconfigs.xml.bkp /vendor/etc/perf/commonresourceconfigs.xml;
-fi
-
-# rearm targetconfig.xml
-if [ ! -f /vendor/etc/perf/targetconfig.xml ]; then
-	mv /vendor/etc/perf/targetconfig.xml.bak /vendor/etc/perf/targetconfig.xml;
-	mv /vendor/etc/perf/targetconfig.xml.bkp /vendor/etc/perf/targetconfig.xml;
-fi
-
-# rearm targetresourceconfigs.xml
-if [ ! -f /vendor/etc/perf/targetresourceconfigs.xml ]; then
-	mv /vendor/etc/perf/targetresourceconfigs.xml.bak /vendor/etc/perf/targetresourceconfigs.xml;
-	mv /vendor/etc/perf/targetresourceconfigs.xml.bkp /vendor/etc/perf/targetresourceconfigs.xml;
-fi
-
-# rearm powerhint.xml
-if [ ! -f /vendor/etc/powerhint.xml ]; then
-	mv /vendor/etc/powerhint.xml.bak /vendor/etc/powerhint.xml;
-	mv /vendor/etc/powerhint.xml.bkp /vendor/etc/powerhint.xml;
-fi
-
-# end ramdisk changes
-
 write_boot;
 ## end boot install
 
