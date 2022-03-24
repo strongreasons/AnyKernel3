@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=
+kernel.string=Telegram @ wzrdgrp
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
@@ -19,7 +19,7 @@ supported.patchlevels=2018-04 -
 '; } # end properties
 
 # shell variables
-block=/dev/block/platform/soc/c0c4000.sdhci/by-name/boot;
+block=/dev/block/bootdevice/by-name/boot;
 is_slot_device=0;
 ramdisk_compression=auto;
 patch_vbmeta_flag=auto;
@@ -56,6 +56,7 @@ fi
 # begin ramdisk changes
 
 #Remove old kernel stuffs from ramdisk
+ui_print "Remove old script..."
 rm -rf $ramdisk/init.special_power.sh
 rm -rf $ramdisk/init.darkonah.rc
 rm -rf $ramdisk/init.spectrum.rc
@@ -69,6 +70,7 @@ rm -rf $ramdisk/init.overdose.rc
 rm -rf $ramdisk/init.forcedt2w.rc
 
 # init.rc
+ui_print "Backup old script..."
 backup_file init.rc;
 remove_line init.rc "import /init.darkonah.rc";
 remove_line init.rc "import /init.spectrum.rc";
@@ -79,6 +81,8 @@ remove_line init.rc "import /init.PbH.rc"
 remove_line init.rc "import /init.Pbh.rc"
 remove_line init.rc "import /init.overdose.rc"
 replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
+
+# end ramdisk changes
 
 write_boot;
 ## end boot install
