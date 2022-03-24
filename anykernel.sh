@@ -38,10 +38,24 @@ chown -R root:root $ramdisk/*;
 ## AnyKernel boot install
 dump_boot;
 
+# begin EAS patch changes
+if [ ! -e "/vendor/etc/powerhint.json" ];then
+    ui_print "The ROM you are using is based on HMP"
+    ui_print "Installing EAS PowerHAL..."
+    rm -rf /data/adb/modules/jasoneaspower;
+    cp -rf $home/patch/eas-perfhal /data/adb/modules/jasoneaspower;
+    chmod -R 755 /data/adb/modules/jasoneaspower
+    chmod -R 644 /data/adb/modules/jasoneaspower/system/vendor/etc/perf/*
+else
+    ui_print "The ROM you are using is based on EAS"
+    ui_print "No need Module EAS PowerHAL..."
+fi
+# end EAS patch changes
+
 # begin ramdisk changes
 
 #Remove old kernel stuffs from ramdisk
-ui_print "Remove old kernel stuffs..."
+ui_print "Cleaning cache..."
 rm -rf $ramdisk/init.special_power.sh
 rm -rf $ramdisk/init.darkonah.rc
 rm -rf $ramdisk/init.spectrum.rc
