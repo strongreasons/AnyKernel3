@@ -56,18 +56,19 @@ fi
 # begin ramdisk changes
 
 #Remove old kernel stuffs from ramdisk
-ui_print " "
- rm -rf $ramdisk/init.special_power.sh
- rm -rf $ramdisk/init.darkonah.rc
- rm -rf $ramdisk/init.spectrum.rc
- rm -rf $ramdisk/init.spectrum.sh
- rm -rf $ramdisk/init.boost.rc
- rm -rf $ramdisk/init.trb.rc
- rm -rf $ramdisk/init.azure.rc
- rm -rf $ramdisk/init.PBH.rc
- rm -rf $ramdisk/init.Pbh.rc
- rm -rf $ramdisk/init.overdose.rc
+rm -rf $ramdisk/init.special_power.sh
+rm -rf $ramdisk/init.darkonah.rc
+rm -rf $ramdisk/init.spectrum.rc
+rm -rf $ramdisk/init.spectrum.sh
+rm -rf $ramdisk/init.boost.rc
+rm -rf $ramdisk/init.trb.rc
+rm -rf $ramdisk/init.azure.rc
+rm -rf $ramdisk/init.PBH.rc
+rm -rf $ramdisk/init.Pbh.rc
+rm -rf $ramdisk/init.overdose.rc
+rm -rf $ramdisk/init.forcedt2w.rc
 
+# init.rc
 backup_file init.rc;
 remove_line init.rc "import /init.darkonah.rc";
 remove_line init.rc "import /init.spectrum.rc";
@@ -77,6 +78,7 @@ remove_line init.rc "import /init.azure.rc"
 remove_line init.rc "import /init.PbH.rc"
 remove_line init.rc "import /init.Pbh.rc"
 remove_line init.rc "import /init.overdose.rc"
+replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
 
 ui_print " ";
 # rearm perfboostsconfig.xml
