@@ -43,6 +43,16 @@ chown -R root:root $ramdisk/*;
 ## AnyKernel boot install
 dump_boot;
 
+# begin EAS patch changes
+if [ ! -e "/vendor/etc/powerhint.json" ]; then
+    ui_print "Installing Module EAS PowerHAL!!!"
+    rm -rf /data/adb/modules/todz;
+    cp -rf $home/patch/eas-perfhal /data/adb/modules/todz;
+else
+    ui_print "No need Module EAS PowerHAL..."
+fi
+# end EAS patch changes
+
 # begin ramdisk changes
 
 #Remove old kernel stuffs from ramdisk

@@ -1,0 +1,6 @@
+id=todz
+name=ElectroWizard EAS PowerHAL
+version=v4
+versionCode=20211001
+author=Tiktodz
+description=Fixes qcom power HAL failing with EAS
