@@ -10,9 +10,8 @@ _________________________________________________
   \ V  V /| |/ / (_| | | | (_| \__ \
    \_/\_/ |_/___\__,_|_|  \__,_|___/
 _________________________________________________
-- Kernel Version : 4.4.302
-- Variant        : Energy Aware Scheduling
-- Compiler       : AOSP clang 14.0.2
-- Device         : Asus Zenfone Max Pro M1
-- Build by       : Tiktodzs
+- Device      > Asus Zenfone Max Pro M1
+- Support     > Android 9.0 - 13.0
+- Maintainer  > Tiktodzs
+- Variant     > Heterogeneous Multi-Processing
 _________________________________________________
