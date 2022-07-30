@@ -72,10 +72,6 @@ remove_line init.rc "import /init.Pbh.rc"
 remove_line init.rc "import /init.overdose.rc"
 replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl cpu" "mount cgroup none /dev/cpuctl cpu,timer_slack";
 
-# Put Android Version on cmdline
-android_ver=$(file_getprop /system/build.prop ro.build.version.release);
-patch_cmdline androidboot.version androidboot.version=$android_ver
-
 # end ramdisk changes
 
 write_boot;
