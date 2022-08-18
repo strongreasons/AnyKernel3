@@ -73,6 +73,18 @@ replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl c
 
 # end ramdisk changes
 
+# begin EAS patch changes
+if [ ! -e "/vendor/etc/powerhint.json" ]; then
+    ui_print " " "Hmm...HMP rom installed"
+    ui_print "Installing EAS PerfHAL..."
+    rm -rf /data/adb/modules/SDM660PerfHAL;
+    cp -rf $home/tools/SDM660PerfHAL /data/adb/modules/SDM660PerfHAL;
+else
+    ui_print " " "You installed EAS rom"
+    ui_print "So install EAS PerHal no required"
+fi
+# end EAS patch changes
+
 write_boot;
 ## end boot install
 
