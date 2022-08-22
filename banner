@@ -12,3 +12,6 @@ _________________________________________________
 - Maintainer  : Kneba
 - Variant     : EAS - LV
 _________________________________________________
+WARNING!!!
+EAS PerfHal no included on this kernel,
+Please flash EAS Perfhal module magisk manually...
