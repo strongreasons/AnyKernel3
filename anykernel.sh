@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=TheOneMemory
+kernel.string=TheOneMemory x ElectroWizard
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
@@ -14,7 +14,7 @@ device.name2=X00TD
 device.name3=ASUS_X00T
 device.name4=ASUS_X00TD
 device.name5=ASUS_X00TDA
-supported.versions=9.0 - 11.0
+supported.versions=9.0 - 10.0
 supported.patchlevels=2018-04 -
 '; } # end properties
 
