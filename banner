@@ -8,10 +8,7 @@
     //       ///////    //         //
 _________________________________________________
 - Device      : Asus Zenfone Max Pro M1
-- Support     : Android 12.0 - 13.0
+- Support     : Android 9.0 - 11.0
 - Maintainer  : Kneba
-- Variant     : EAS - LV
+- Variant     : EAS - NLV
 _________________________________________________
-WARNING!!!
-EAS PerfHal no included on this kernel,
-Please flash EAS Perfhal module magisk manually...
