@@ -5,10 +5,10 @@
     /**    /**      /** /**  //*   /**
     /**    //**     **  /**   /    /**
     /**     //*******   /**        /**
-    //       ///////    //         //
+    //       ///////    //         //. .Kernel
 _________________________________________________
 - Device      : Asus Zenfone Max Pro M1
 - Maintainer  : Kneba
-- Support     : Android 12 - 13
-- Variant     : HMP - LV
+- Supported   : Android 9 - 13
+- Variant     : HMP
 _________________________________________________

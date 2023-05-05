@@ -73,6 +73,25 @@ replace_string init.rc "cpuctl cpu,timer_slack" "mount cgroup none /dev/cpuctl c
 
 # end ramdisk changes
 
+## Get Android version
+android_ver="$(file_getprop /system/build.prop ro.build.version.release)"
+
+patch_cmdline "androidboot.version" ""
+
+if [ ! -z "$android_ver" ]; then
+	patch_cmdline "androidboot.version" "androidboot.version=$android_ver"
+fi
+
+
+# Switch Vibration Type
+
+if [ "$android_ver" -lt "10" ];then
+patch_cmdline led.vibration led.vibration=0
+else
+patch_cmdline led.vibration led.vibration=1
+fi
+# end cmdline
+
 write_boot;
 ## end boot install
 
