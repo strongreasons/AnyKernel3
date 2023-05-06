@@ -295,28 +295,10 @@ int2ver() {
   fi;
 }
 do_versioncheck() {
-  [ "$(file_getprop anykernel.sh supported.versions)" ] || return 1;
-  local android_ver hi_ver lo_ver parsed_ver supported supported_ver;
-  ui_print "Checking Android version...";
-  supported_ver=$(file_getprop anykernel.sh supported.versions | tr -d '[:space:]');
-  android_ver=$(file_getprop /system/build.prop ro.build.version.release);
-  parsed_ver=$(int2ver $android_ver);
-  if echo $supported_ver | grep -q '-'; then
-    lo_ver=$(int2ver "$(echo $supported_ver | cut -d- -f1)");
-    hi_ver=$(int2ver "$(echo $supported_ver | cut -d- -f2)");
-    if echo -e "$hi_ver\n$lo_ver\n$parsed_ver" | sort -g | grep -n "$parsed_ver" | grep -q '^2:'; then
-      supported=1;
-    fi;
-  else
-    for ver in $(echo $supported_ver | sed 's;,; ;g'); do
-      if [ "$(int2ver $ver)" == "$parsed_ver" ]; then
-        supported=1;
-        break;
-      fi;
-    done;
-  fi;
-  if [ ! "$supported" ]; then
-    abort " " "Unsupported Android version. Aborting...";
+  android_ver="$(file_getprop /system/build.prop ro.build.version.release)"
+  if [ ! -z "$android_ver" ]; then
+    ui_print "Checking Android version...";
+    ui_print "Android version $android_ver" " "
   fi;
 }
 do_levelcheck() {
