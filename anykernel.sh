@@ -5,17 +5,12 @@
 # begin properties
 properties() { '
 kernel.string=Join on telegram @ wzrdgrp
-do.devicecheck=1
+do.devicecheck=0
 do.modules=0
+do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=X00T
-device.name2=X00TD
-device.name3=ASUS_X00T
-device.name4=ASUS_X00TD
-device.name5=ASUS_X00TDA
-supported.versions=9 - 13
-supported.patchlevels=2018-04 -
+supported.patchlevels=
 '; } # end properties
 
 # shell variables
@@ -78,16 +73,10 @@ android_ver="$(file_getprop /system/build.prop ro.build.version.release)"
 
 patch_cmdline "androidboot.version" ""
 
-if [ ! -z "$android_ver" ]; then
+if [ ! -z "$android_ver" ];then
 	patch_cmdline "androidboot.version" "androidboot.version=$android_ver"
 fi
 
-# Switch Vibration Type
-if [ "$android_ver" -lt "11" ];then
-patch_cmdline led.vibration led.vibration=1
-else
-patch_cmdline led.vibration led.vibration=0
-fi
 # end cmdline
 
 write_boot;
