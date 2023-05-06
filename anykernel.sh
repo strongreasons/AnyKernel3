@@ -82,13 +82,11 @@ if [ ! -z "$android_ver" ]; then
 	patch_cmdline "androidboot.version" "androidboot.version=$android_ver"
 fi
 
-
 # Switch Vibration Type
-
-if [ "$android_ver" -lt "10" ];then
-patch_cmdline led.vibration led.vibration=0
-else
+if [ "$android_ver" -lt "11" ];then
 patch_cmdline led.vibration led.vibration=1
+else
+patch_cmdline led.vibration led.vibration=0
 fi
 # end cmdline
 
