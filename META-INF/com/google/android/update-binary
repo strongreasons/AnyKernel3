@@ -512,7 +512,6 @@ mount /vendor
       rm -rf /system/init.spectrum.sh
       ui_print "remove /system/init.spectrum.sh"
 	fi
-    if [ ! -e $AKHOME/init.spectrum.rc ];then
     if [ -e /vendor/etc/init/hw/init.spectrum.rc ];then
       rm -rf /vendor/etc/init/hw/init.spectrum.rc
 	  if [ -e /vendor/bin/init.spectrum.sh ];then
