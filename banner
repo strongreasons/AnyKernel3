@@ -11,9 +11,10 @@
 By: dotkit
 _________________________________________________
 - Device      : Asus Zenfone Max Pro M1
-- Kernel      : v4.4.205 CLO-r38
+- Kernel      : v4.4.205 codelinaro
 - Support     : Android 8.0 - 10.0
 - Variant     : Heterogeneous Multi-Processing
 _________________________________________________
 Notes
-- Supports Magisk and APatch, you choose one.
+- This kernel support APatch
+- No support for KernelSU.
