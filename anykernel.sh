@@ -4,7 +4,7 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=NEON Kernel by wimbiyoashizkia @ github
+kernel.string=TOM Kernel by Tiktodz @ github
 do.devicecheck=0
 do.modules=0
 do.systemless=1
@@ -23,10 +23,11 @@ set_perm_recursive 0 0 750 750 $RAMDISK/init* $RAMDISK/sbin;
 } # end attributes
 
 # boot shell variables
-BLOCK=/dev/block/bootdevice/by-name/boot;
+BLOCK=/dev/block/platform/soc/c0c4000.sdhci/by-name/boot;
 IS_SLOT_DEVICE=0;
 RAMDISK_COMPRESSION=auto;
 PATCH_VBMETA_FLAG=auto;
+NO_BLOCK_DISPLAY=1;
 
 # import functions/variables and setup patching - see for reference (DO NOT REMOVE)
 . tools/ak3-core.sh;
